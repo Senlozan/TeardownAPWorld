@@ -314,4 +314,411 @@ LOCATION_NAME_TO_ID = {"The Lee Computers": 1
     "Jetski engine": 303,
     "Machine grease": 304,
     "A teapot, short and stout...": 305,
-    "Bayran deluxe sunglasses": 306}
+    "Bayran deluxe sunglasses": 306,
+    "Assortment of tools": 307,
+    "Hammer": 308}
+
+class APQuestLocation(Location):
+    game = "Teardown"
+
+def get_location_names_with_ids(location_names: list[str]) -> dict[str, int | None]:
+    return {location_name: LOCATION_NAME_TO_ID[location_name] for location_name in location_names}
+
+def create_all_locations(world: TeardownWorld) -> None:
+    create_regular_locations(world)
+    create_events(world)
+
+def create_regular_locations(world: APQuestWorld) -> None:
+
+    home = world.get_region("Löckelle Teardown Services")
+    lee = world.get_region("Lee Chemicals")
+    marina = world.get_region("West Point Marina")
+    mansion = world.get_region("Villa Gordon")
+    caveisland = world.get_region("Hollowrock Island")
+    mall = world.get_region("Evertides Mall")
+    frustrum = world.get_region("Frustrum")
+    vacation = world.get_region("Muratori Beach")
+    carib = world.get_region("Isla Estocastica")
+    factory = world.get_region("Quilez Security")
+    cullington = world.get_region("Cullington")
+
+    home_locations = get_location_names_with_ids(
+        ["Banana"]
+    )
+    home.add_locations(home_locations, TeardownLocation)
+
+    lee_mission_locations = get_location_names_with_ids(
+        ["The Lee Computers",
+    "The login devices",
+    "The Tower",
+    "Power Outage",
+    "Flooding",
+    "Heavy lifting",
+    "Malice in Woonderland"]
+    )
+    lee.add_locations(lee_mission_locations, TeardownLocation)
+
+    marina_mission_locations = get_location_names_with_ids(
+        ["Making space",
+    "Classic Cars",
+    "The GPS devices",
+    "Art Return",
+    "Tool up"]
+    )
+    marina.add_locations(marina_mission_locations, TeardownLocation)
+
+    mansion_mission_locations = get_location_names_with_ids(
+        [ "The Car Wash",
+    "Fine Arts",
+    "Insurance Fraud",
+    "A Wet Affair",
+    "The Speed Deal"]
+    )
+    mansion.add_locations(mansion_mission_locations, TeardownLocation)
+
+    caveisland_mission_locations = get_location_names_with_ids(
+        [    "The BlueTide Computers",
+    "Motivational Reminder",
+    "An Assortment of Dishes",
+    "The secret ingredients",
+    "Droid dismount"]
+    )
+    caveisland.add_locations(caveisland_mission_locations, TeardownLocation)
+
+    mall_mission_locations = get_location_names_with_ids(
+        [    "The Old Building Problem",
+    "The shipping logs",
+    "Connecting the dots",
+    "Covert chaos",
+    "Ornament ordeal"]
+    )
+    mall.add_locations(mall_mission_locations, TeardownLocation)
+
+    frustrum_mission_locations = get_location_names_with_ids(
+        ["The Chase",
+    "The BlueTide shortage",
+    "Truckload of trouble",
+    "The pawn shop"]
+    )
+    frustrum.add_locations(frustrum_mission_locations, TeardownLocation)
+
+    carib_mission_locations = get_location_names_with_ids(
+        ["Moving the goods",
+    "Havoc in paradise",
+    "Elena's revenge"]
+    )
+    carib.add_locations(carib_mission_locations, TeardownLocation)
+
+    factory_mission_locations = get_location_names_with_ids(
+        ["Roborazzi",
+    "The droid abduction",
+    "Handle with care",
+    "The Quilez tools"]
+    )
+    factory.add_locations(factory_mission_locations, TeardownLocation)
+
+    cullington_mission_locations = get_location_names_with_ids(
+        ["The final diversion"]
+    )
+    cullington.add_locations(cullington_mission_locations, TeardownLocation)
+
+    lee_valuable_locations = get_location_names_with_ids(
+        ["Old Trowel",
+    "Pneumatic wrench",
+    "Hidden cash (harbor office)",
+    "Lee's tax deductible college fund",
+    "Tile cutter",
+    "Titanium screwdriver bits",
+    "Disc cutter",
+    "Hidden cash (transformer)",
+    "Power wrench",
+    "Diamond cutters",
+    "Hidden cash (factory)",
+    "Hidden cash (office)",
+    "Good Life by Enid Coumans",
+    "West Point Marina by Enid Coumans",
+    "Hidden cash (office 2nd floor)",
+    "50 Shades of Capitalism by Kerstin Straback",
+    "Lee's tax deductible pension fund",
+    "Circular saw",
+    "Assortment of tools",
+    "Electric screwdriver",
+    "Deposit bottles",
+    "Microscope",
+    "Bottle of Gulfmyra",
+    "Wallet",
+    "Agent B4 comic collection",
+    "Distance laser 1",
+    "Hidden cash (dumpster)",
+    "Assortment of tools",
+    "Hammer"]
+    )
+    lee.add_locations(lee_valuable_locations, TeardownLocation)
+    
+    marina_valuable_locations = get_location_names_with_ids(
+        ["D-Gauss portable gaming console",
+    "Fishing gear",
+    "Bayran Sunglasses",
+    "Cash register",
+    "Decorative swordfish",
+    "Antique pirate hook",
+    "ProSuck vacuum cleaner",
+    "Antique pirate sword",
+    "Model ship",
+    "Antique pirate dagger",
+    "Newlander MP3 player",
+    "Binoculars",
+    "Antique compass",
+    "Bingo trophy",
+    "Cash box",
+    "Antique cannonball",
+    "Antique black powder gun",
+    "Assortment of tequilla",
+    "Marine flashlight",
+    "Walkie talkies",
+    "Marine sextant",
+    "Designer life vest",
+    "Electric sander",
+    "Antique silver coins",
+    "Bag of cash",
+    "Cigar box",
+    "Pressure calibration instrument",
+    "Lump of amethyst",
+    "Marinoil Premium Lubrication",
+    "Brand new Wanderman Sonar",
+    "Aluminium propeller",
+    "Mizaka premium spark plugs",
+    "Power drill",
+    "Telescope",
+    ]
+    )
+    marina.add_locations(marina_valuable_locations, TeardownLocation)
+
+    mansion_valuable_locations = get_location_names_with_ids(
+        ["Spare steeringwheel",
+    "Engraved lighter",
+    "Bag in box wine",
+    "Box of expensive Swiss chocolate",
+    "Precision thermometer",
+    "Gilded toilet brush",
+    "2nd prize in Woo Open 1994",
+    "BBQ Charcoal made from rare protected hardwood",
+    "Designer lamp Entwined angles by Berthold Bruckness",
+    "Jewelry box",
+    "Food processor",
+    "Silverware",
+    "Oysters",
+    "How to become a snooker champ - in 24 hours by Clue Baize",
+    "Wallet (Villa Gordon)",
+    "Popcorn machine maintenance manual",
+    "The ultimate collection of movie one-liners by Garth Pikett",
+    "Coin collection (Villa Gordon)",
+    "Bronze statue",
+    "Universal remote",
+    "Cable box",
+    "Expensive vintage sneakers",
+    "Rare genuine vintage band t-shirt",
+    "Credit card",
+    "Elevator maintenance manual",
+    "Exclusive make-up",
+    "Sleeping pills",
+    "Wallet (top floor)",
+    "Penthouse gardening by Liza Green",
+    "Dictaphone",
+    "A stash of emergency cash",
+    "Chef knives",
+    "Nice cooking pan",
+    "Russian caviar",
+    "Gordon's hidden birthday gift for Ms. Couman",
+    "Gordon's lost passport",
+    "Box of artisanal tomato soup",
+    "A vacuum cleaner (Villa Gordon)",
+    "Portable casette tape player",
+    "Pretty fancy bottle of rum",
+    "Electric drill (Villa Gordon)",
+    "Carburetor for Castanet 500L",
+    "Expensive callibration tool",
+    "The Lazy Express",
+    "Wallet (security office)",
+    "Engraved lighter (Freya's room)",
+    "What a fancy racing trophy",
+    "A car mechanics toolbox"]
+    )
+    mansion.add_locations(mansion_valuable_locations, TeardownLocation)
+
+    caveisland_valuable_locations = get_location_names_with_ids(
+        ["Stack of gold bullions",
+    "Bag of cash (Hollowrock Island)",
+    "Air purifier",
+    "Dual line telephone",
+    "Extra potent nutrition",
+    "Fungimax synthetic yeast",
+    "TurboWipe pesticide",
+    "Tidyfresh premium detergent",
+    "Electric drill (Hollowrock Island)",
+    "Disc cutter (Hollowrock Island)",
+    "Old TV",
+    "Spare carbon arc lamp",
+    "A crock of gold",
+    "Synthetic tar",
+    "Fishing gear (Hollowrock Island)",
+    "Precision fishing scale",
+    "Portable FM radio",
+    "High-speed labeling device",
+    "Sakawana fishing knife",
+    "TV (Hollowrock Island)",
+    "Wallet (Hollowrock Island)",
+    "Ivory chess pieces",
+    "Rags and water bottles",
+    "Hand-drill and duct tape",
+    "Vacuum cleaner (Hollowrock Island)",
+    "Projector",
+    "Opus Juan vintage wine",
+    "Binoculars (Hollowrock Island)",
+    "Garden scissors",
+    "Alarm clock",
+    "Flat screen monitor",
+    "Essential one-liners by Dilip Sequoia",
+    "Bottle of gin",
+    "Digital pulse monitor watch",
+    "Cash register (Hollowrock Island)",
+    "Cash register (BT store)",
+    "BlueTide Extra Strong, limited edition",
+    "Sleeping Aid"]
+    )
+    caveisland.add_locations(caveisland_valuable_locations, TeardownLocation)
+
+    mall_valuable_locations = get_location_names_with_ids(
+        ["How to look busy at work magazine",
+    "Holy Paula Taco spices",
+    "Very durable phone",
+    "Sandproof radio",
+    "Signature vinegar",
+    "Eau de toilette",
+    "RoflFX Effect Pedal",
+    "Famous underwear",
+    "Cheap garden scissors",
+    "How to open any safe in 4 easy steps",
+    "Limited edition video game hoodie",
+    "Fake demonstration cash",
+    "Stylish fur coat",
+    "Lost wallet (Evertides Mall)",
+    "Rare pink spray paint",
+    "Gold watch",
+    "Ruby necklace",
+    "Cheap vodka",
+    "MumboJumbo 3D 16MB VRAM",
+    "Taxfree profit",
+    "Deposited funds",
+    "Confiscated Skateboard",
+    "Red stapler",
+    "24k golden tie pin",
+    "Civet Coffee",
+    "Truffle juce",
+    "Flashlight (Evertides Mall)"]
+    )
+    mall.add_locations(mall_valuable_locations, TeardownLocation)
+
+    frustrum_valuable_locations = get_location_names_with_ids(
+        ["High Quality Oil Paint",
+    "LIT yearly bonus",
+    "High viscosity oil",
+    "Harmonica B-minor",
+    "Reciprocating saw",
+    "Lost wallet (Frustrum)",
+    "Fishing lure",
+    "Wingman Precision Darts",
+    "Lost wallet (club)",
+    "Smoke Machine MkII",
+    "Gender Revolvers LP",
+    "Razor Shaver S",
+    "Frustrum Town Council Community Award: Fred Frustrum - Gas Attendant. 'You keep the town rolling'",
+    "Tribal Mask",
+    "Dehumidifier NM200",
+    "Questionable bone collection",
+    "Lost wallet (above tunnel)",
+    "Frederick Frustrums long lost hat",
+    "Lost engagement ring",
+    "Secret spices",
+    "Lost wallet (hotel)",
+    "Silk smooth fabric softener",
+    "Smooth Skin Plus",
+    "Industrial filter",
+    "Preasure meter",
+    "Gibbon Stereocaster",
+    "Bits set"]
+    )
+    frustrum.add_locations(frustrum_valuable_locations, TeardownLocation)
+
+    carib_valuable_locations = get_location_names_with_ids(
+        ["Expensive snorkel",
+    "A volley ball turned into a toy",
+    "Exotic fruit",
+    "Golden 28 inch rims",
+    "Lost wallet (Isla Estocastica)",
+    "A monkey hand, it's supposed to grant you wishes",
+    "Money counter",
+    "Diamond cane",
+    "Brass knuckles",
+    "Island life - Your guide to the Muratoris",
+    "Pineapple",
+    "Inflatable duck",
+    "Bird egg",
+    "Unused mortar shell",
+    "Golden grillz",
+    "Scuba tank",
+    "Tropical helmet",
+    "Tuning kit",
+    "Golden bullets",
+    "High precision scale",
+    "A really old message in a bottle",
+    "Marine supercharger",
+    "Dried out carburetor",
+    "A genuine pegleg",
+    "The last roll of TP",
+    "A skate, how did that end up here...",
+    "Old magazines",
+    "Chainsaw",
+    "Good grappa",
+    "Jetski engine",
+    "Machine grease",
+    "A teapot, short and stout...",
+    "Bayran deluxe sunglasses"]
+    )
+    carib.add_locations(carib_valuable_locations, TeardownLocation)
+
+    factory_valuable_locations = get_location_names_with_ids(
+        ["Ultrasonic Distance Sensor",
+    "SURVIVAL 101 - Nuts, bark and berries",
+    "Distance sensor",
+    "Infrared Sensor",
+    "A pair of scuba diving oxygen tanks",
+    "High sensitivity moisture sensor",
+    "Continuous rotation servo motor",
+    "Half Ambient Light-sensor 9000",
+    "Water proof material sample",
+    "A deck of poker cards",
+    "Quilez corporate umbrella",
+    "Handrolled Muratori cigars",
+    "Office safe master key replica",
+    "What a beautiful bouquet of roses",
+    "A discarded bouquet of roses",
+    "A trashed bouquet of roses",
+    "Motivational reminder appreciation token /Gillian",
+    "Top 25 camping spots in Löckelle",
+    "A nice rock climbing hat",
+    "Outboard motor",
+    "Infrared Transmitter",
+    "Box of semi-conductors",
+    "Vault door gear motor",
+    "Gyroscope",
+    "AI core",
+    "High sensitivity microphone sensor",
+    "Bullet proof material sample",
+    "A fishing rod",
+    "A battery powered radio",
+    "Photoresistor Light Sensor",
+    "Helicopter maintenance manual",
+    "Explosion proof material sample"]
+    )
+    factory.add_locations(factory_valuable_locations, TeardownLocation)
